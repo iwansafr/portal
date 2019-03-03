@@ -70,7 +70,8 @@ if(!empty($_SESSION['user']))
 										<div class="form-group">
 											<select class="form-control" name="kelas_id">
 												<?php foreach ($data_kelas as $key => $value): ?>
-													<option value="<?php echo $key ?>"><?php echo $value ?></option>
+													<?php $selected = ($key==$ubah_mapel['kelas_id']) ? 'selected' : ''; ?>
+													<option value="<?php echo $key ?>" <?php echo $selected ?>><?php echo $value ?></option>
 												<?php endforeach ?>
 											</select>
 										</div>
