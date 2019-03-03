@@ -5,7 +5,7 @@ class Database
 
     // used to connect to the database
     private $host = "localhost";
-    private $db_name = "test";
+    private $db_name = "portal";
     private $username = "root";
     private $password = "toor";
     public $db_conn;
