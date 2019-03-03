@@ -28,16 +28,24 @@
                         $jadwal = $mapel->get_jadwal();
 
                         $time = date('H:i:s');
-                        foreach ($jadwal as $key => $value) 
+                        $kosong = TRUE;
+                        if(!empty($jadwal))
                         {
-                            if(($time >= $value['start']) && ($time <= $value['end']))
+                            foreach ($jadwal as $key => $value) 
                             {
-                                ?>
-                                <div class="form-group">
-                                    <a class="btn btn-lg" style="width: 100%; background-color: <?php echo $value['color']?>; color: white;" href="<?php echo $value['link'] ?>"><?php echo $data_kelas[$value['kelas_id']] ?></a>
-                                </div>
-                                <?php
+                                if(($time >= $value['start']) && ($time <= $value['end']))
+                                {
+                                    $kosong = FALSE;
+                                    ?>
+                                    <div class="form-group">
+                                        <a class="btn btn-lg" style="width: 100%; background-color: <?php echo $value['color']?>; color: white;" href="<?php echo $value['link'] ?>"><?php echo $data_kelas[$value['kelas_id']] ?></a>
+                                    </div>
+                                    <?php
+                                }
                             }
+                        }
+                        if($kosong){
+                            echo '<h1>TIDAK ADA JADWAL UJIAN</h1>';
                         }
                         ?>
                         <a href="" class="btn btn-lg btn-warning" title="">refresh halaman</a>
