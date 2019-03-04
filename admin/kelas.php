@@ -80,32 +80,34 @@ if(!empty($_SESSION['user']))
 							</div>
 							<div class="panel panel-body">
 								<?php echo @$msg; ?>
-								<table id="kelas" class="table table-bordered table-striped">
-								  <thead>
-								  <tr>
-								    <th>ID</th>
-								    <th>TITLE</th>
-								    <th>action</th>
-								  </tr>
-								  </thead>
-								  <tbody>
-										<?php 
-										if(!empty($data))
-										{
-											foreach ($data as $key => $value) 
+								<div class="table-responsive">
+									<table id="kelas" class="table table-bordered table-striped">
+									  <thead>
+									  <tr>
+									    <th>ID</th>
+									    <th>TITLE</th>
+									    <th>action</th>
+									  </tr>
+									  </thead>
+									  <tbody>
+											<?php 
+											if(!empty($data))
 											{
-												?>
-												<tr>
-													<td><?php echo $value['id'] ?></td>
-													<td><?php echo $value['title'] ?></td>
-													<td><a href="?hapus=<?php echo $value['id']?>" title="">hapus</a> | <a href="?edit=<?php echo $value['id']?>" title="">Ubah</a></td>
-												</tr>
-												<?php		
-											} 
-										}
-										?>
-								  </tbody>
-								</table>
+												foreach ($data as $key => $value) 
+												{
+													?>
+													<tr>
+														<td><?php echo $value['id'] ?></td>
+														<td><?php echo $value['title'] ?></td>
+														<td><a href="?hapus=<?php echo $value['id']?>" title="">hapus</a> | <a href="?edit=<?php echo $value['id']?>" title="">Ubah</a></td>
+													</tr>
+													<?php		
+												} 
+											}
+											?>
+									  </tbody>
+									</table>
+								</div>
 							</div>
 						</div>
 					</div>
