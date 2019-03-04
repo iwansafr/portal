@@ -144,7 +144,7 @@ if(!empty($_SESSION['user']))
 													<tr>
 														<td><?php echo $value['title'] ?></td>
 														<td><?php echo $value['kode'] ?></td>
-														<td><?php echo $value['link'] ?></td>
+														<td><a href="<?php echo $value['link'] ?>"><?php echo $value['link'] ?></a></td>
 														<td><?php echo $data_kelas[$value['kelas_id']] ?></td>
 														<td><?php echo $value['date'] ?></td>
 														<td><?php echo $value['start'] ?></td>
