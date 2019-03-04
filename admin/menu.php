@@ -8,6 +8,7 @@
       <li><a href="user.php">User</a></li>
       <li><a href="kelas.php">Kelas</a></li>
       <li><a href="mapel.php">Mapel</a></li>
+      <li><a href="config.php">Config</a></li>
     </ul>
   </div>
 </nav>

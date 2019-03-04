@@ -3,6 +3,21 @@
 <head>
     <title>TEST LINK PORTAL</title>
     <link href="library/css/bootstrap.min.css" rel="stylesheet">
+    <?php
+    // include database and object files
+    include_once 'classes/database.php';
+    include_once 'classes/mapel.php';
+    include_once 'classes/kelas.php';
+    include_once 'classes/config.php';
+    include_once 'initial.php';
+
+    $mapel = new mapel($db);
+    $kelas = new kelas($db);
+    $conf = new config($db);
+    $data_kelas = $kelas->getAll(TRUE);
+    $jadwal = $mapel->get_jadwal();
+    $config = $conf->get_config('main');
+    ?>
 </head>
 <body>
     <div class="container">
@@ -10,23 +25,10 @@
             <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel panel-heading">
-                        <img src="http://smkn1bangsri.sch.id/theme/images/logosekolah.png" alt="" height="50"> UTS GASAL 2018/2019 SMKN 1 BANGSRI
+                        <img src="http://smkn1bangsri.sch.id/theme/images/logosekolah.png" alt="" height="50"> <?php echo @$config['judul'] ?>
                     </div>
                     <div class="panel panel-body">
                         <?php
-
-                        // include database and object files
-                        include_once 'classes/database.php';
-                        include_once 'classes/mapel.php';
-                        include_once 'classes/kelas.php';
-                        include_once 'initial.php';
-
-                        $mapel = new mapel($db);
-                        $kelas = new kelas($db);
-
-                        $data_kelas = $kelas->getAll(TRUE);
-                        $jadwal = $mapel->get_jadwal();
-
                         $time = date('H:i:s');
                         $kosong = TRUE;
                         if(!empty($jadwal))
