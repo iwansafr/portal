@@ -3,7 +3,6 @@
 <head>
     <title>TEST LINK PORTAL</title>
     <link href="library/css/bootstrap.min.css" rel="stylesheet">
-<<<<<<< HEAD
     <?php
     // include database and object files
     include_once 'classes/database.php';
@@ -19,13 +18,11 @@
     $jadwal = $mapel->get_jadwal();
     $config = $conf->get_config('main');
     ?>
-=======
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="situs web portal untuk test smkn1 bangsri">
     <meta name="keywords" content="smkn1bangsri, esoftgreat, software development, esoftgreat.com">
     <meta name="developer" content="esoftgreat">
->>>>>>> 21d57452694262bdd7330703e5feb797acbb5ba2
 </head>
 <body>
     <div class="container">
