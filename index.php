@@ -3,6 +3,11 @@
 <head>
     <title>TEST LINK PORTAL</title>
     <link href="library/css/bootstrap.min.css" rel="stylesheet">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="situs web portal untuk test smkn1 bangsri">
+    <meta name="keywords" content="smkn1bangsri, esoftgreat, software development, esoftgreat.com">
+    <meta name="developer" content="esoftgreat">
 </head>
 <body>
     <div class="container">
