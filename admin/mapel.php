@@ -120,42 +120,44 @@ if(!empty($_SESSION['user']))
 							</div>
 							<div class="panel panel-body">
 								<?php echo @$msg; ?>
-								<table id="mapel" class="table table-bordered table-striped">
-								  <thead>
-								  <tr>
-								    <th>TITLE</th>
-								    <th>kode</th>
-								    <th>link</th>
-								    <th>kelas</th>
-								    <th>tanggal</th>
-								    <th>mulai</th>
-								    <th>selesai</th>
-								    <th>action</th>
-								  </tr>
-								  </thead>
-								  <tbody>
-										<?php 
-										if(!empty($data))
-										{
-											foreach ($data as $key => $value) 
+								<div class="table-responsive">
+									<table id="mapel" class="table table-bordered table-striped">
+									  <thead>
+									  <tr>
+									    <th>TITLE</th>
+									    <th>kode</th>
+									    <th>link</th>
+									    <th>kelas</th>
+									    <th>tanggal</th>
+									    <th>mulai</th>
+									    <th>selesai</th>
+									    <th>action</th>
+									  </tr>
+									  </thead>
+									  <tbody>
+											<?php 
+											if(!empty($data))
 											{
-												?>
-												<tr>
-													<td><?php echo $value['title'] ?></td>
-													<td><?php echo $value['kode'] ?></td>
-													<td><?php echo $value['link'] ?></td>
-													<td><?php echo $data_kelas[$value['kelas_id']] ?></td>
-													<td><?php echo $value['date'] ?></td>
-													<td><?php echo $value['start'] ?></td>
-													<td><?php echo $value['end'] ?></td>
-													<td><a href="?hapus=<?php echo $value['id']?>" title="">hapus</a> | <a href="?edit=<?php echo $value['id']?>" title="">Ubah</a></td>
-												</tr>
-												<?php		
-											} 
-										}
-										?>
-								  </tbody>
-								</table>
+												foreach ($data as $key => $value) 
+												{
+													?>
+													<tr>
+														<td><?php echo $value['title'] ?></td>
+														<td><?php echo $value['kode'] ?></td>
+														<td><?php echo $value['link'] ?></td>
+														<td><?php echo $data_kelas[$value['kelas_id']] ?></td>
+														<td><?php echo $value['date'] ?></td>
+														<td><?php echo $value['start'] ?></td>
+														<td><?php echo $value['end'] ?></td>
+														<td><a href="?hapus=<?php echo $value['id']?>" title="">hapus</a> | <a href="?edit=<?php echo $value['id']?>" title="">Ubah</a></td>
+													</tr>
+													<?php		
+												} 
+											}
+											?>
+									  </tbody>
+									</table>
+								</div>
 							</div>
 						</div>
 					</div>
