@@ -9,6 +9,27 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 
+DROP TABLE IF EXISTS `config`;
+CREATE TABLE `config` (
+  `id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `params` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+INSERT INTO `config` (`id`, `title`, `params`) VALUES
+(1, 'main', '{\"kegiatan_id\":\"1\",\"kegiatan_title\":\"UTS gasal 2019\"}');
+
+DROP TABLE IF EXISTS `kegiatan`;
+CREATE TABLE `kegiatan` (
+  `id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+INSERT INTO `kegiatan` (`id`, `title`, `created`, `updated`) VALUES
+(1, 'UTS gasal 2019', '2019-05-18 12:00:01', '2019-05-18 12:00:01');
+
 DROP TABLE IF EXISTS `kelas`;
 CREATE TABLE `kelas` (
   `id` int(11) NOT NULL,
@@ -52,6 +73,7 @@ DROP TABLE IF EXISTS `mapel`;
 CREATE TABLE `mapel` (
   `id` int(11) NOT NULL,
   `kelas_id` int(11) NOT NULL,
+  `kegiatan_id` int(11) NOT NULL,
   `title` varchar(255) NOT NULL,
   `kode` varchar(20) NOT NULL,
   `color` varchar(50) NOT NULL,
@@ -61,10 +83,6 @@ CREATE TABLE `mapel` (
   `end` time NOT NULL,
   `status` tinyint(1) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-INSERT INTO `mapel` (`id`, `kelas_id`, `title`, `kode`, `color`, `link`, `date`, `start`, `end`, `status`) VALUES
-(2, 33, 'mtk', 'mtkx', '#164dc1', 'https://www.esoftgreat.com', '2019-03-03', '20:00:00', '21:00:00', 1),
-(3, 33, 'SEJARAH', 'sj', '#45c12e', 'https://www.esoftgreat.com', '2019-03-03', '20:00:00', '21:00:00', 1);
 
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
@@ -80,6 +98,12 @@ INSERT INTO `user` (`id`, `username`, `password`, `created`, `updated`) VALUES
 (2, 'eskasaba', '3bf1067fc6f6efb41336cd7f29147660', '2019-03-03 12:26:20', '2019-03-03 12:26:20');
 
 
+ALTER TABLE `config`
+  ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `kegiatan`
+  ADD PRIMARY KEY (`id`);
+
 ALTER TABLE `kelas`
   ADD PRIMARY KEY (`id`);
 
@@ -90,11 +114,17 @@ ALTER TABLE `user`
   ADD PRIMARY KEY (`id`);
 
 
+ALTER TABLE `config`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+ALTER TABLE `kegiatan`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 ALTER TABLE `kelas`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 ALTER TABLE `mapel`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 ALTER TABLE `user`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
