@@ -12,6 +12,18 @@ class Config
         $this->db_conn = $db;
     }
 
+    public function get_options()
+    {
+        $q = 'SELECT * FROM kegiatan ORDER BY id DESC';
+        $prep_state = $this->db_conn->prepare($q);
+        $prep_state->execute();
+        $data = array();
+        while ($row = $prep_state->fetch(PDO::FETCH_ASSOC)){
+            $data[] = $row;
+        }
+        return $data;
+    }
+
     function get_config($name = '')
     {
         if(!empty($name))
@@ -37,6 +49,11 @@ class Config
             $data = $_POST;
             if(!empty($data))
             {
+                $data = explode('_',$data['judul']);
+                $tmp_data = array();
+                $tmp_data['kegiatan_id'] = $data[0];
+                $tmp_data['kegiatan_title'] = $data[1];
+                $data = $tmp_data;
                 $data = json_encode($data);
                 $current_config = $this->get_config($title);
                 $status = array('status'=>FALSE,'msg'=>'data empty');
@@ -51,9 +68,9 @@ class Config
                 $prep->bindParam(':title',$title);
                 if($prep->execute())
                 {
-                    $status = array('status'=>TRUE,'msg'=>'Successfull saved data '.$title);
+                    $status = array('status'=>TRUE,'msg'=>'data berhasil tersimpan');
                 }else{
-                    $status = array('status'=>FALSE,'msg'=>'saved data failed');
+                    $status = array('status'=>FALSE,'msg'=>'data gagal disimpan');
                 }
             }
         }

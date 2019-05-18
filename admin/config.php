@@ -19,7 +19,8 @@
 			include '../initial.php';
 
 			$conf = new config($db);
-			$conf->save('main');
+			$msg = $conf->save('main');
+			$options = $conf->get_options();
 			$data = $conf->get_config('main');
 			?>
 			<div class="col-md-3">
@@ -28,10 +29,19 @@
 						Configuration
 					</div>
 					<div class="panel-body panel">
+						<?php if (!empty($msg['status'])): ?>
+							<?php echo $msg['msg'] ?>
+						<?php endif ?>
 						<form action="" method="post">
 							<div class="form-group">
 								<label for="judul">judul</label>
-								<input type="text" name="judul" class="form-control" placeholder="judul" value="<?php echo @$data['judul'] ?>">
+								<select class="form-control" name="judul">
+									<?php if (!empty($options)): ?>
+										<?php foreach ($options as $key): ?>
+											<option value="<?php echo $key['id'].'_'.$key['title'] ?>"><?php echo $key['title'] ?></option>
+										<?php endforeach ?>			
+									<?php endif ?>
+								</select>
 							</div>
 							<div class="form-group">
 								<button class="btn btn-sm btn-success">simpan</button>

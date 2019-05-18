@@ -1,14 +1,14 @@
 <?php
 
-class Mapel
+class Kegiatan
 {
     // table name definition and database connection
     private $db_conn;
-    private $table_name = "mapel";
+    private $table_name = "kegiatan";
 
     // object properties
     public $id;
-    public $name;
+    public $title;
 
     public function __construct($db)
     {
@@ -16,15 +16,10 @@ class Mapel
     }
 
     // used by create.php and edit.php to select category drop-down list
-    function getAll($config = array())
+    function getAll($assoc = FALSE)
     {
-        $where = '';
-        if(!empty($config))
-        {
-            $where = ' WHERE kegiatan_id = '.$config['kegiatan_id'];
-        }
         //select all data
-        $sql = "SELECT * FROM " . $this->table_name . "  ".$where." ORDER BY id DESC";
+        $sql = "SELECT id, title FROM " . $this->table_name . "  ORDER BY title";
 
         $prep_state = $this->db_conn->prepare($sql);
         $prep_state->execute();
@@ -32,50 +27,37 @@ class Mapel
         while ($row = $prep_state->fetch(PDO::FETCH_ASSOC)){
             $data[] = $row;
         }
-        return $data;
-    }
-
-    function get_jadwal()
-    {
-        $date = date('Y-m-d');
-        $q = 'SELECT * FROM mapel WHERE date = ?';
-        $prep_state = $this->db_conn->prepare($q);
-        $prep_state->bindParam(1, $date);
-        $prep_state->execute();
-
-        $data = array();
-        while ($row = $prep_state->fetch(PDO::FETCH_ASSOC)){
-            $data[] = $row;
+        if($assoc)
+        {
+            $tmp_data = $data;
+            $data = array();
+            foreach ($tmp_data as $key => $value) 
+            {
+                $data[$value['id']] = $value['title'];
+            }
         }
         return $data;
     }
 
-    function tambah_mapel($data = array())
+    function tambah_kegiatan($data = array())
     {
         if(!empty($data) && is_array($data))
         {
             //write query
-            $sql = "INSERT INTO " . $this->table_name . " SET kelas_id = ?, title = ?, kode = ?, link = ?, date = ?, start = ?, end = ?, status = ?, color = ? , kegiatan_id = ? ";
+            $sql = "INSERT INTO " . $this->table_name . " SET title = ?";
 
             if(!empty($data['id']))
             {
-                $sql = "UPDATE " . $this->table_name . " SET kelas_id = ?, title = ?, kode = ?, link = ?, date = ?, start = ?, end = ?, status = ?, color = ?, kegiatan_id = ? WHERE id = ?";
+                $sql = "UPDATE " . $this->table_name . " SET title = ? WHERE id = ?";
             }
             $prep_state = $this->db_conn->prepare($sql);
-            $prep_state->bindParam(1, $data['kelas_id']);
-            $prep_state->bindParam(2, $data['title']);
-            $prep_state->bindParam(3, $data['kode']);
-            $prep_state->bindParam(4, $data['link']);
-            $prep_state->bindParam(5, $data['date']);
-            $prep_state->bindParam(6, $data['start']);
-            $prep_state->bindParam(7, $data['end']);
-            $prep_state->bindParam(8, $data['status']);
-            $prep_state->bindParam(9, $data['color']);
-            $prep_state->bindParam(10, $data['kegiatan_id']);
+
+            $prep_state->bindParam(1, $data['title']);
             if(!empty($data['id']))
             {
-                $prep_state->bindParam(11, $data['id']);
+                $prep_state->bindParam(2, $data['id']);
             }
+
             if ($prep_state->execute()) {
                 return true;
             } else {
@@ -85,7 +67,7 @@ class Mapel
     }
 
     // used by index.php to read category name
-    function getName()
+    function getTitle()
     {
 
         $sql = "SELECT title FROM " . $this->table_name . " WHERE id = ? limit 0,1";
@@ -96,9 +78,9 @@ class Mapel
 
         $row = $prep_state->fetch(PDO::FETCH_ASSOC);
 
-        $this->name = $row['name'];
+        $this->name = $row['title'];
     }
-    function get_mapel($id = 0)
+    function get_kegiatan($id = 0)
     {
         if(!empty($id))
         {
@@ -112,7 +94,7 @@ class Mapel
             return $data;
         }
     }
-    function del_mapel($id=0)
+    function del_kegiatan($id=0)
     {
         if(!empty($id))
         {
