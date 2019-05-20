@@ -35,6 +35,7 @@
                     </div>
                     <div class="panel panel-body">
                         <?php
+                        date_default_timezone_set("Asia/Bangkok");
                         $time = date('H:i:s');
                         echo $time;
                         $kosong = TRUE;
