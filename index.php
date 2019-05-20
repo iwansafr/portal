@@ -36,6 +36,7 @@
                     <div class="panel panel-body">
                         <?php
                         $time = date('H:i:s');
+                        echo $time;
                         $kosong = TRUE;
                         if(!empty($jadwal))
                         {
