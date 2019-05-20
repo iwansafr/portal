@@ -31,7 +31,7 @@
             <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel panel-heading">
-                        <img src="http://smkn1bangsri.sch.id/theme/images/logosekolah.png" alt="" height="50"> <?php echo @$config['judul'] ?>
+                        <img src="http://smkn1bangsri.sch.id/theme/images/logosekolah.png" alt="" height="50"> <?php echo @$config['kegiatan_title'] ?>
                     </div>
                     <div class="panel panel-body">
                         <?php
