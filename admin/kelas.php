@@ -1,3 +1,4 @@
+<?php session_start();?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,7 +15,6 @@
 <body>
 	
 	<?php
-	session_start();
 	if(!empty($_SESSION['user']))
 	{
 		include_once '../classes/database.php';

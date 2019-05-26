@@ -1,3 +1,4 @@
+<?php	session_start();?>
 <link href="../library/css/bootstrap.min.css" rel="stylesheet">
 <div class="container">
 	<div class="row">
