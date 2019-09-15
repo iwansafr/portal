@@ -9,7 +9,7 @@
     "description" : "situs web portal untuk test smkn1 bangsri",
     "orientation" : "any",
     "background_color" : "transparent",
-    "related_applications" : "",
+    "related_applications" : {},
     "prefer_related_applications" : "false",
     "generated" : "true",
     "icons" : [
