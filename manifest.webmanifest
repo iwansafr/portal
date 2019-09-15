@@ -1,0 +1,20 @@
+{"dir" : "ltr",
+    "lang" : "en",
+    "name" : "TEST LINK PORTAL",
+    "scope" : "/",
+    "display" : "fullscreen",
+    "start_url" : "https://exam.esoftgreat.com/",
+    "short_name" : "TEST LINK PORTA",
+    "theme_color" : "transparent",
+    "description" : "situs web portal untuk test smkn1 bangsri",
+    "orientation" : "any",
+    "background_color" : "transparent",
+    "related_applications" : "",
+    "prefer_related_applications" : "false",
+    "generated" : "true",
+    "icons" : [
+        {
+            "src": "https://exam.esoftgreat.com/images/favicon.ico",
+            "sizes": "16x16"
+        }
+    ]}

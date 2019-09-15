@@ -24,6 +24,7 @@
     <meta name="description" content="situs web portal untuk test smkn1 bangsri">
     <meta name="keywords" content="smkn1bangsri, esoftgreat, software development, esoftgreat.com">
     <meta name="developer" content="esoftgreat">
+    <link rel='manifest' href='/manifest.webmanifest'>
 </head>
 <body>
     <div class="container">
@@ -67,5 +68,28 @@
             </div>
         </div>
     </div>
+
+    <script>
+        // This is the "Offline page" service worker
+
+        // Add this below content to your HTML page, or add the js file to your page at the very top to register service worker
+
+        // Check compatibility for the browser we're running this in
+        if ("serviceWorker" in navigator) {
+          if (navigator.serviceWorker.controller) {
+            console.log("[PWA Builder] active service worker found, no need to register");
+          } else {
+            // Register the service worker
+            navigator.serviceWorker
+              .register("pwabuilder-sw.js", {
+                scope: "./"
+              })
+              .then(function (reg) {
+                console.log("[PWA Builder] Service worker has been registered for scope: " + reg.scope);
+              });
+          }
+        }
+
+    </script>
 </body>
 </html>
