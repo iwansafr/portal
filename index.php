@@ -18,7 +18,7 @@
     $jadwal = $mapel->get_jadwal();
     $config = $conf->get_config('main');
     ?>
-    <link rel="shortcut icon" type="image/x-icon" href="images/logo.jpeg">
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="situs web portal untuk test smkn1 bangsri">
@@ -31,7 +31,7 @@
             <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel panel-heading">
-                        <img src="http://smkn1bangsri.sch.id/theme/images/logosekolah.png" alt="" height="50"> <?php echo @$config['kegiatan_title'] ?>
+                        <img src="images/ms-icon-70x70.png" alt="" height="50"> <?php echo @$config['kegiatan_title'] ?>
                     </div>
                     <div class="panel panel-body">
                         <?php
