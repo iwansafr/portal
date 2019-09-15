@@ -18,7 +18,7 @@
     $jadwal = $mapel->get_jadwal();
     $config = $conf->get_config('main');
     ?>
-    <link rel="shortcut icon" type="image/x-icon" href="http://smkn1bangsri.sch.id/theme/images/logosekolah.png">
+    <link rel="shortcut icon" type="image/x-icon" href="images/logo.jpeg">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="situs web portal untuk test smkn1 bangsri">
