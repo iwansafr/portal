@@ -24,7 +24,7 @@
     <meta name="description" content="situs web portal untuk test smkn1 bangsri">
     <meta name="keywords" content="smkn1bangsri, esoftgreat, software development, esoftgreat.com">
     <meta name="developer" content="esoftgreat">
-    <link rel='manifest' href='/manifest.webmanifest'>
+    <!-- <link rel='manifest' href='/manifest.webmanifest'> -->
 </head>
 <body>
     <div class="container">
@@ -70,12 +70,12 @@
     </div>
     
     <script>
-      if('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/sw.js')
-          .then(function() {
-                console.log('Service Worker Registered');
-          });
-      }
+      // if('serviceWorker' in navigator) {
+      //   navigator.serviceWorker.register('/sw.js')
+      //     .then(function() {
+      //           console.log('Service Worker Registered');
+      //     });
+      // }
     </script>
     <script>
         // This is the "Offline page" service worker
