@@ -126,5 +126,23 @@ class Mapel
             }   
         }
     }
+
+    public function search_mapel($keyword = '')
+    {
+        if(!empty($keyword))
+        {
+            $sql = "SELECT * FROM ".$this->table_name." WHERE title LIKE '%".$keyword."%'";
+            $prep_state = $this->db_conn->prepare($sql);
+            if($prep_state->execute()){
+                $data = array();
+                while ($row = $prep_state->fetch(PDO::FETCH_ASSOC)){
+                    $data[] = $row;
+                }
+                return $data;
+            }else{
+                return false;
+            }
+        }
+    }
 }
 
