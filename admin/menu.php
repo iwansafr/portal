@@ -14,6 +14,7 @@
         <li><a href="user.php">User</a></li>
         <li><a href="kelas.php">Kelas</a></li>
         <li><a href="mapel.php">Mapel</a></li>
+        <li><a href="search.php">Search</a></li>
         <li><a href="config.php">Config</a></li>
         <li><a href="kegiatan.php">Kegiatan</a></li>
         <li><a href="logout.php" onclick="if(confirm('apakah anda yakin ingin logout ?')){}else{return false;};">Logout</a></li>
