@@ -11,6 +11,8 @@ $auth = $user->login($username,$password);
 if(!empty($auth))
 {
 	echo @$auth['msg'];
+	print_r($_SESSION);
+	print_r($auth);
 	if(!empty($auth['status']))
 	{
 		$_SESSION['user'] = $auth['data'];
