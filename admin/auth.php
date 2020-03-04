@@ -11,10 +11,10 @@ $auth = $user->login($username,$password);
 if(!empty($auth))
 {
 	echo @$auth['msg'];
-	print_r($_SESSION);
-	print_r($auth);
 	if(!empty($auth['status']))
 	{
+		print_r($_SESSION);
+		print_r($auth);
 		$_SESSION['user'] = $auth['data'];
 		header('location: index.php');
 	}
