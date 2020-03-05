@@ -56,7 +56,11 @@
 				$msg = 'gagal hapus mapel';
 			}
 		}
-		$data = $mapel->getAll($data_config);
+		$tgl = '';
+		if (!empty($_GET['tgl'])) {
+			$tgl = $_GET['tgl'];
+		}
+		$data = $mapel->getAll($data_config, $tgl);
 		?>
 		<div class="container">
 			<div class="row">
@@ -66,6 +70,20 @@
 					 ?>
 					<div class="col-md-12">
 						<div class="row">
+							<div class="row">
+								<div class="col-md-6">
+									<div class="panel">
+										<div class="panel-body">
+											<form action="" method="get">
+												<div class="form-group form-inline">
+													<input type="date" name="tgl" class="form-control" value="<?php echo $tgl ?>">
+													<input type="submit" value="Filter" class="btn btn-default btn-sm">
+												</div>
+											</form>
+										</div>
+									</div>
+								</div>
+							</div>
 							<div class="col-md-3">
 								<form action="" method="post">
 									<div class="panel panel-default">

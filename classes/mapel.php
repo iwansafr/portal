@@ -16,12 +16,15 @@ class Mapel
     }
 
     // used by create.php and edit.php to select category drop-down list
-    function getAll($config = array())
+    function getAll($config = array(), $tgl = '')
     {
         $where = '';
         if(!empty($config))
         {
             $where = ' WHERE kegiatan_id = '.$config['kegiatan_id'];
+        }
+        if(!empty($tgl)){
+            $where .= " AND date = '".$tgl."'";
         }
         //select all data
         $sql = "SELECT * FROM " . $this->table_name . "  ".$where." ORDER BY id DESC";
